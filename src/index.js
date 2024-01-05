@@ -1,12 +1,14 @@
 import express from 'express'
 import './config/enviroment.js'
-//import { connection } from './config/db.js'
+import { connection } from './config/db.js'
 
 const app = express()
 
 
-app.get('/prueba',(req,res)=>{
-    res.end('Probando....')
+app.get('/prueba',async (req,res)=>{
+    const [data,fields]=await connection.execute('select * from BOOKS')
+    
+    res.send(data)
 })
 
 app.use((req,res)=>{
