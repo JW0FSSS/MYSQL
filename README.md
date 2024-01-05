@@ -1,1 +1,1 @@
-Get up server : npm run dev
+Turn on server : npm run dev
